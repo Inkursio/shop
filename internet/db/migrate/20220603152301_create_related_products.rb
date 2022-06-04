@@ -4,10 +4,9 @@ class CreateRelatedProducts < ActiveRecord::Migration[6.1]
       t.integer :product_id
       t.integer :related_id
 
-      t.timestamps
     end
 
-    insert <<-SQL.squlish
+    insert <<-SQL.squish
             INSERT INTO related_products
             (product_id, related_id)
             VALUES

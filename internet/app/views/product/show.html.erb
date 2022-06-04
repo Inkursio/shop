@@ -20,6 +20,22 @@
 
           <div class="col-md-5 single-top-left">
 
+              <% unless @product.galleries==[]%>
+              <!--flexslider-->
+                <div class="flexslider">
+                  <ul class="slides">
+                    <% @product.galleries.each do |item|%>
+                      <li data-thumb="<% asset_path item['img']%>">
+                        <div class="thumb-image">
+                          <img src="<% asset_path item['img']%>" data-imagezoom="true" class="img-responsive" alt=""/>
+                        </div>
+                      </li>
+                    <%end%>
+                  </ul>
+                </div>
+              <!--end-flexslider-->
+              <%else%>
+
               <div class="flexslider">
               <ul class="slides">
                 <li data-thumb="<% asset_path 's-1.jpg'%>">
@@ -33,6 +49,8 @@
                 </li>
               </ul>
               </div>
+
+              <%end%>
 
           </div>
 
@@ -149,12 +167,12 @@
                 </a>
 
                 <div class="product-bootom">
-                  <h3><a href="<%=related.id%>"><%= relted.title%></a></h3>
+                  <h3><a href="<%=related.id%>"><%= related.title%></a></h3>
                   <p>Explore Now</p>
                   <h4>
                     <a class="item_add add-to-cart-link" href="cart/add?id=<%=related.id%>" data-id="<%related.id=%>"><i></i></a>
                     <span class="item-price">$ <%= related.price%></span>
-                    <% if related.old-price%>
+                    <% if related.old_price%>
                       <del><%=related.old_price%></del>
                     <%end%>
                   </h4>
@@ -188,7 +206,7 @@
                       <p>Explore Now</p>
                       <h4>
                         <a href="cart/add?id=<%=recently.id%>" data-id="<%=recently.id%>"><i></i></a>
-                        <span class=" item_price">$ <%=recentle.price%></span>
+                        <span class=" item_price">$ <%=recently.price%></span>
                         <%if recently.old_price %>
                           <del><%= recently.old_price%></del>
                         <%end%>

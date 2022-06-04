@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe MainHelper, type: :helper do
 
-  pending "add some examples to (or delete) #{__FILE__}"
+
 
   describe 'GET #index' do
     let(:brands) {create_list :brand, 3}
