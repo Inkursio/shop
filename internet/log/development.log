@@ -4116,3 +4116,49 @@ Processing by ProductController#show as HTML
 Completed 200 OK in 89ms (Views: 76.1ms | ActiveRecord: 7.3ms | Allocations: 69231)
 
 
+Started GET "/product/6" for 127.0.0.1 at 2022-06-05 13:44:57 +0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductController#show as HTML
+  Parameters: {"id"=>"6"}
+Creating scope :not_hit. Overwriting existing method Product.not_hit.
+Enum element 'not_hit' in Product uses the prefix 'not_'. This has caused a conflict with auto generated negative scopes. Avoid using enum elements starting with 'not' where the positive form is also an element.
+  [1m[36mProduct Load (2.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/product_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering product/show.html.erb within layouts/application
+  [1m[36mGallery Load (1.5ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/product/show.html.erb:23
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "related_products" ON "products"."id" = "related_products"."related_id" WHERE "related_products"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/product/show.html.erb:162
+  [1m[36mProduct Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "products" WHERE "products"."id" IN ($1, $2, $3) LIMIT $4[0m  [["id", 6], ["id", 2], ["id", 4], ["LIMIT", 1]]
+  ↳ app/views/product/show.html.erb:194
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN ($1, $2, $3)[0m  [["id", 6], ["id", 2], ["id", 4]]
+  ↳ app/views/product/show.html.erb:199
+  Rendered product/show.html.erb within layouts/application (Duration: 1560.5ms | Allocations: 171133)
+  Rendered include/main/_top_header.html.erb (Duration: 0.4ms | Allocations: 158)
+  [1m[36mCategory Load (3.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."ancestry" IS NULL[0m
+  ↳ app/views/include/main/_bottom_header.html.erb:8
+  Rendered include/main/_bottom_header.html.erb (Duration: 10.0ms | Allocations: 2486)
+  Rendered include/main/_footer.html.erb (Duration: 1.0ms | Allocations: 198)
+  Rendered layout layouts/application.html.erb (Duration: 2527.7ms | Allocations: 232136)
+Completed 200 OK in 2601ms (Views: 2514.6ms | ActiveRecord: 30.7ms | Allocations: 248727)
+
+
+Started GET "/" for 127.0.0.1 at 2022-06-05 13:45:02 +0300
+Processing by MainController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering main/index.html.erb within layouts/application
+  [1m[36mBrand Load (1.6ms)[0m  [1m[34mSELECT "brands".* FROM "brands" LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/main/index.html.erb:21
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."hit" = $1 LIMIT $2[0m  [["hit", 1], ["LIMIT", 8]]
+  ↳ app/views/main/index.html.erb:48
+  Rendered main/index.html.erb within layouts/application (Duration: 41.3ms | Allocations: 14589)
+  Rendered include/main/_top_header.html.erb (Duration: 0.2ms | Allocations: 42)
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."ancestry" IS NULL[0m
+  ↳ app/views/include/main/_bottom_header.html.erb:8
+  Rendered include/main/_bottom_header.html.erb (Duration: 3.6ms | Allocations: 758)
+  Rendered include/main/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | Allocations: 29067)
+Completed 200 OK in 77ms (Views: 64.5ms | ActiveRecord: 9.9ms | Allocations: 30560)
+
+
