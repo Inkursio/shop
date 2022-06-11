@@ -22,7 +22,9 @@ gem "breadcrumbs_on_rails"
 gem 'ancestry'
 
 gem 'uglifier'
-gem 'activestorage'
+
+gem 'activeadmin'
+gem 'devise'
 
 group :development, :test do
 

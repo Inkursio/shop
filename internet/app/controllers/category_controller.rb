@@ -8,6 +8,6 @@ class CategoryController < ApplicationController
 
   def set_page_options
     set_meta_tags category.slice(:title, :keywords, :description)
-    add_breadcrump path :root_path, title: 'Home'
+    add_breadcrumb "Home", root_path
   end
 end

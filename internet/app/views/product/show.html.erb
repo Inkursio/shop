@@ -1,10 +1,11 @@
 <!--start-breadcrumbs-->
+
 <div class="breadcrumbs">
   <div class="container">
-    <div class="breadcrumbs-main">
+    <div class="breadcrumbs_min">
       <ol class="breadcrumbs">
-        <li><a href="/"><%= render_breadcrumbs %></a></li>
-        <li class="active"><%= @product.title%></li>
+        <li class="breadcrumb-item"><%= render_breadcrumbs %></li>
+        <li class="breadcrumb-item active"><%=@product.title%></li>
       </ol>
     </div>
   </div>
@@ -20,21 +21,7 @@
 
           <div class="col-md-5 single-top-left">
 
-              <% unless @product.galleries==[]%>
-              <!--flexslider-->
-                <div class="flexslider">
-                  <ul class="slides">
-                    <% @product.galleries.each do |item|%>
-                      <li data-thumb="<% asset_path item['img']%>">
-                        <div class="thumb-image">
-                          <img src="<% asset_path item['img']%>" data-imagezoom="true" class="img-responsive" alt=""/>
-                        </div>
-                      </li>
-                    <%end%>
-                  </ul>
-                </div>
-              <!--end-flexslider-->
-              <%else%>
+
 
               <div class="flexslider">
               <ul class="slides">
@@ -50,7 +37,7 @@
               </ul>
               </div>
 
-              <%end%>
+
 
           </div>
 
@@ -73,21 +60,9 @@
               </div>
 
              <h5 class="item-price">$ <%= @product.price%></h5>
-             <%if @product.old_price%>
-              <del><%=@product.old_price%></del>
-             <%end%>
              <p><%= @product.content%></p>
              <div class="available">
                <ul>
-                 <li>Color
-                   <select>
-                     <option>Silver</option>
-                     <option>Black</option>
-                     <option>Dark Black</option>
-                     <option>Red</option>
-                   </select>
-                 </li>
-
                  <li class="size-in">Size
                    <select>
                      <option>Large</option>
@@ -101,8 +76,6 @@
 
              <ul class="tag-men">
                <li>
-                 <span>CATEGORY</span>
-                 <strong>:</strong>
                </li>
              </ul>
              <div class="quantity">
@@ -168,17 +141,10 @@
 
                 <div class="product-bootom">
                   <h3><a href="<%=related.id%>"><%= related.title%></a></h3>
-                  <p>Explore Now</p>
                   <h4>
                     <a class="item_add add-to-cart-link" href="cart/add?id=<%=related.id%>" data-id="<%related.id=%>"><i></i></a>
                     <span class="item-price">$ <%= related.price%></span>
-                    <% if related.old_price%>
-                      <del><%=related.old_price%></del>
-                    <%end%>
                   </h4>
-                </div>
-                <div class="sech">
-                  <span>- 50%</span>
                 </div>
               </div>
             </div>
@@ -200,20 +166,14 @@
                 <div class="col-md-4 product-left p-left">
                   <div class="product_main simpleCart_shelfItem">
                     <a href="<%=recently.id%>" class="mask">
-                    <img class="img-responsive zoom-img" src="<% asset_path recently.img%>" alt=""></a>
+                    <img class="img-responsive zoom-img" src="<%= asset_path recently.img%>" alt=""/>
+                    </a>
                     <div class="product-botton">
                       <h3><a href="<%=recently.id%>"><%=recently.title%></a></h3>
-                      <p>Explore Now</p>
                       <h4>
                         <a href="cart/add?id=<%=recently.id%>" data-id="<%=recently.id%>"><i></i></a>
                         <span class=" item_price">$ <%=recently.price%></span>
-                        <%if recently.old_price %>
-                          <del><%= recently.old_price%></del>
-                        <%end%>
                       </h4>
-                    </div>
-                    <div class="srch">
-                      <span>-50%</span>
                     </div>
                   </div>
                 </div>
@@ -232,9 +192,6 @@
                  <h4>Categories</h4>
                  <div class="rowl scroll-pane">
                    <div class="col col-4">
-                     <label class="checkbox"><input type="checkbox" name="checkbox" checked=""<i></i>All Accessories</label>
-                   </div>
-                   <div class="col col-4">
                      <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Women Watches</label>
                      <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kids Watches</label>
                      <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Men Watches</label>
@@ -246,42 +203,11 @@
                  <h4>Brand</h4>
                  <div class="row1 row2 scroll-pane">
                    <div class="col col-4">
-                     <label class="checkbox"><input type="checkbox" name="checkbox" checked=""<i></i>kurtas</label>
-                   </div>
-                   <div class="col col-4">
-                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>1brands</label>
-                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>2brands</label>
-                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>3brands</label>
-                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>4brands</label>
-                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>5brands</label>
-                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>6brands</label>
-                   </div>
-                 </div>
-               </section>
-
-               <section class="sky-form">
-                  <h4>Color</h4>
-                  <ul class="w-nav2">
-                    <li><a class="color1" href="#"></a></li>
-                    <li><a class="color2" href="#"></a></li>
-                    <li><a class="color3" href="#"></a></li>
-                    <li><a class="color4" href="#"></a></li>
-                    <li><a class="color5" href="#"></a></li>
-                  </ul>
-               </section>
-
-               <section class="sky-form">
-                 <h4>discount</h4>
-                 <div class="row1 row2 scroll-pane">
-                   <div class="col col-4">
-                     <label class="radio"><input type="radio" name="radio" checked=""><i></i>60%and above</label>
-                     <label class="radio"><input type="radio" name="radio"><i></i>50%and above</label>
-                     <label class="radio"><input type="radio" name="radio"><i></i>40%and above</label>
-                   </div>
-                   <div class="col col-4">
-                     <label class="radio"><input type="radio" name="radio"><i></i>30%and above</label>
-                     <label class="radio"><input type="radio" name="radio"><i></i>20%and above</label>
-                     <label class="radio"><input type="radio" name="radio"><i></i>60%and above</label>
+                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Citizen</label>
+                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Casio</label>
+                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Royal London</label>
+                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Seiko</label>
+                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Diesel</label>
                    </div>
                  </div>
                </section>

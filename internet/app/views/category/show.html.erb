@@ -3,7 +3,7 @@
   <div class="container">
     <div class="breadcrumbs_min">
       <ol class="breadcrumbs">
-        <li><%=link_to(render_breadcrumbs, root_path)%></li>
+        <li><%= render_breadcrumbs %></li>
         <li><%=@category.title%></li>
       </ol>
     </div>
@@ -21,19 +21,13 @@
               <%@category.products.each do |product|%>
               <div class="col-md-4 product-left p-left">
                 <div class="product-main simpleCart_shelfItem">
-                  <% link_to (image_tag(product.img, alt:"" class="img-responsive zoom-img"), product, class="mask")%>
+                  <%= link_to(image_tag(product.img, alt:"", class: "img-responsive zoom-img"), product, class: "mask") %>
                   <div class="product-bootom">
                     <h3>Explore Now</h3>
                     <h4>
                       <a data-id="<%=product.id%>" class="add-to-cart-link" href="cart/add?id=<%=product.id%>"><i></i></a>
                       <span class=" item_price"><%=product.price%></span>
-                      <% if product.old_price%>
-                        <small><del><%product.old_price%></del></small>
-                      <%end%>
                     </h4>
-                  </div>
-                  <div class="srch srch1">
-                    <span>-50%</span>
                   </div>
                 </div>
               </div>
@@ -50,9 +44,6 @@
             <h4>Categories</h4>
             <div class="rowl scroll-pane">
               <div class="col col-4">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""<i></i>All Accessories</label>
-              </div>
-              <div class="col col-4">
                 <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Women Watches</label>
                 <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kids Watches</label>
                 <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Men Watches</label>
@@ -64,42 +55,11 @@
             <h4>Brand</h4>
             <div class="row1 row2 scroll-pane">
               <div class="col col-4">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""<i></i>kurtas</label>
-              </div>
-              <div class="col col-4">
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>1brands</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>2brands</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>3brands</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>4brands</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>5brands</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>6brands</label>
-              </div>
-            </div>
-          </section>
-
-          <section class="sky-form">
-             <h4>Color</h4>
-             <ul class="w-nav2">
-               <li><a class="color1" href="#"></a></li>
-               <li><a class="color2" href="#"></a></li>
-               <li><a class="color3" href="#"></a></li>
-               <li><a class="color4" href="#"></a></li>
-               <li><a class="color5" href="#"></a></li>
-             </ul>
-          </section>
-
-          <section class="sky-form">
-            <h4>discount</h4>
-            <div class="row1 row2 scroll-pane">
-              <div class="col col-4">
-                <label class="radio"><input type="radio" name="radio" checked=""><i></i>60%and above</label>
-                <label class="radio"><input type="radio" name="radio"><i></i>50%and above</label>
-                <label class="radio"><input type="radio" name="radio"><i></i>40%and above</label>
-              </div>
-              <div class="col col-4">
-                <label class="radio"><input type="radio" name="radio"><i></i>30%and above</label>
-                <label class="radio"><input type="radio" name="radio"><i></i>20%and above</label>
-                <label class="radio"><input type="radio" name="radio"><i></i>60%and above</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Citizen</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Casio</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Royal London</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Seiko</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Diesel</label>
               </div>
             </div>
           </section>
