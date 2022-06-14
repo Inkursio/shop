@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   validates :title,  presence: true
   validates :price, presence: true
 
+  attr_accessor :weight_value
+
   has_many :galleries
 
   belongs_to :category

@@ -30,11 +30,22 @@ class ProductsController < ApplicationController
     add_breadcrumb 'Home', root_path
   end
 
+  CATEGORY_WEIGHT = 10
+  BRAND_WEIGHT = 2
+
   def recomend_products
     return product.category.products.limit(4) if recent_products.blank?
-    pp category_ids = recent_products.pluck(:category_id)#.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
-    pp brand_ids = recent_products.pluck(:brand_id)#.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
 
-    Product.where(category_id: category_ids).or(Product.where(brand_id: brand_ids)).limit(4)
+    category_ids = recent_products.pluck(:category_id)
+    categories = category_ids.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
+    brand_ids = recent_products.pluck(:brand_id)
+     brands = brand_ids.group_by{|e| e}.map{|k, v| [k, v.length]}.to_h
+
+    base_products = Product.where(category_id: category_ids).or(Product.where(brand_id: brand_ids))
+
+    validate_products = base_products.map{|product|
+              product.weight_value = (categories[product.category_id] || 0) * CATEGORY_WEIGHT + (brands[product.brand_id] || 0) * BRAND_WEIGHT
+              product
+            }.sort_by(&:weight_value).first(4)
   end
 end
