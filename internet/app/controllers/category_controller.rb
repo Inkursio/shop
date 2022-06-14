@@ -1,5 +1,6 @@
 class CategoryController < ApplicationController
   def show
+    @products 
     @category = Category.find(params[:id])
     set_page_options
   end

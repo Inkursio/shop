@@ -22,11 +22,15 @@
       <%=render 'include/main/top_header'%>
     <!--top-header-->
 
+    <!--notification-->
+    <%= render 'include/main/notifications'%>
+    <!--notification-->
+
 
     <!--start-logo-->
     <div class="logo">
       <%= link_to root_path do %>
-        <h1>MaximShues</h1>
+        <h1>Oleg_Gontaruk</h1>
       <%end%>
     </div>
     <!--start-logo-->
@@ -39,7 +43,7 @@
     <%= yield %>
   </div>
 
-  
+
   <!--footer-->
       <%=render 'include/main/footer'%>
   <!--footer-->

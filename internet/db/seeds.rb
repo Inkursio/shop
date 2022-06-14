@@ -14,14 +14,6 @@ brand_attributes = [{
                     {
                       title: 'Royal London', bytitle: 'royal-london',
                       img: 'abt-3.jpg', description: Faker::Superhero.name
-                    },
-                    {
-                      title: 'Seiko', bytitle: 'seiko', img: 'seiko.png',
-                      description: Faker::Superhero.name
-                    },
-                    {
-                      title: 'Diesel', bytitle: 'diesel', img: 'diesel.png',
-                      description: Faker::Superhero.name
                     }]
 
 brand_attributes.each do |attr|
@@ -36,8 +28,9 @@ end
 women = Category.create(title: 'Women', bytitle: 'women', keywords: 'women', description: 'for women')
 electronic2 = Category.create(title: 'Electronic', bytitle: 'electronic2', keywords: 'electronic', description: 'electronic', parent: women)
 mechanical2 = Category.create(title: 'Mechanical', bytitle: 'mechanical2', keywords: 'mechanical', description: 'mechanical', parent: women)
-epos = Category.create(title: 'Epos', bytitle: 'epos', keywords: 'epos', description: 'epos', parent: electronic2)
-seiko = Category.create(title: 'Seiko', bytitle: 'seiko', keywords: 'seiko', description: 'seiko', parent: mechanical2)
+casio = Category.create(title: 'Casio', bytitle: 'casio', keywords: 'casio', description: 'casio', parent: mechanical2)
+citizen = Category.create(title: 'Citizen', bytitle: 'citizen', keywords: 'citizen', description: 'citizen', parent: electronic2)
+royal = Category.create(title: 'Royal London', bytitle: 'royal-london', keywords: 'royal-london', description: 'royal-london', parent: electronic2)
 
 men = Category.create(title: 'Men', bytitle: 'men', keywords: 'men', description: 'for men')
 electronic1 = Category.create(title: 'Electronic', bytitle: 'electronic1', keywords: 'electronic', description: 'electronic', parent: men)
@@ -47,18 +40,34 @@ citizen = Category.create(title: 'Citizen', bytitle: 'citizen', keywords: 'citiz
 royal = Category.create(title: 'Royal London', bytitle: 'royal-london', keywords: 'royal-london', description: 'royal-london', parent: electronic1)
 
 kids = Category.create(title: 'Kids', bytitle: 'kids', keywords: 'kids', description: 'for kids')
-adriatica = Category.create(title: 'Adriatica', bytitle: 'adriatica', keywords: 'adriatica', description: 'adriatica', parent: kids)
-mechanical1 = Category.create(title: 'Anne Klein', bytitle: 'anne-klein', keywords: 'anne-klein', description: 'anne-klein', parent: kids)
-
+electronic3 = Category.create(title: 'Electronic', bytitle: 'electronic3', keywords: 'electronic', description: 'electronic', parent: kids)
+mechanical3 = Category.create(title: 'Mechanical', bytitle: 'mechanical3', keywords: 'mechanical', description: 'mechanical', parent: kids)
+casio = Category.create(title: 'Casio', bytitle: 'casio', keywords: 'casio', description: 'casio', parent: mechanical3)
+citizen = Category.create(title: 'Citizen', bytitle: 'citizen', keywords: 'citizen', description: 'citizen', parent: electronic3)
+royal = Category.create(title: 'Royal London', bytitle: 'royal-london', keywords: 'royal-london', description: 'royal-london', parent: electronic3)
 # - - - - - - - -
 
 # table products
 product_attributes = [
                       {
-                        category_id: '6',
+                        category_id: '4',
                         brand_id: '1',
-                        title: 'Casio MQ-24-7BUL',
-                        bytitle: 'casio-mq-24-7bul',
+                        title: 'Casio 1',
+                        bytitle: 'casio-1',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-1.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '4',
+                        brand_id: '1',
+                        title: 'Casio 2',
+                        bytitle: 'casio-2',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -69,10 +78,10 @@ product_attributes = [
                         hit: 1
                       },
                       {
-                        category_id: '6',
+                        category_id: '4',
                         brand_id: '1',
-                        title: 'Casio GA-1000-1AER',
-                        bytitle: 'casio-ga-1000-1aer',
+                        title: 'Casio 3',
+                        bytitle: 'casio-3',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -83,10 +92,10 @@ product_attributes = [
                         hit: 1
                       },
                       {
-                        category_id: '7',
-                        brand_id: '2',
-                        title: 'Citizen JP1010-00E',
-                        bytitle: 'citizen-jp1010-00e',
+                        category_id: '10',
+                        brand_id: '1',
+                        title: 'Casio 4',
+                        bytitle: 'casio-4',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -97,10 +106,10 @@ product_attributes = [
                         hit: 1
                       },
                       {
-                        category_id: '7',
-                        brand_id: '2',
-                        title: 'Citizen BJ2111-08E',
-                        bytitle: 'citizen-bj2111-08e',
+                        category_id: '10',
+                        brand_id: '1',
+                        title: 'Casio 5',
+                        bytitle: 'casio-5',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -111,10 +120,198 @@ product_attributes = [
                         hit: 1
                       },
                       {
+                        category_id: '10',
+                        brand_id: '1',
+                        title: 'Casio 6',
+                        bytitle: 'casio-6',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-6.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '16',
+                        brand_id: '1',
+                        title: 'Casio 7',
+                        bytitle: 'casio-7',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-7.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '16',
+                        brand_id: '1',
+                        title: 'Casio 8',
+                        bytitle: 'casio-8',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-8.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '16',
+                        brand_id: '1',
+                        title: 'Casio 9',
+                        bytitle: 'casio-9',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-9.png',
+                        hit: 1
+                      },
+
+
+
+                      {
+                        category_id: '5',
+                        brand_id: '2',
+                        title: 'Citizen 1',
+                        bytitle: 'citizen-1',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-10.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '5',
+                        brand_id: '2',
+                        title: 'Citizen 2',
+                        bytitle: 'citizen-2',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-11.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '5',
+                        brand_id: '2',
+                        title: 'Citizen 3',
+                        bytitle: 'citizen-3',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-12.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '11',
+                        brand_id: '2',
+                        title: 'Citizen 4',
+                        bytitle: 'citizen-4',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-13.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '11',
+                        brand_id: '2',
+                        title: 'Citizen 5',
+                        bytitle: 'citizen-5',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-1.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '11',
+                        brand_id: '2',
+                        title: 'Citizen 6',
+                        bytitle: 'citizen-6',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-2.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '17',
+                        brand_id: '2',
+                        title: 'Citizen7',
+                        bytitle: 'citizen-7',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-3.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '17',
+                        brand_id: '2',
+                        title: 'Citizen 8',
+                        bytitle: 'citizen-8',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-4.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '17',
+                        brand_id: '2',
+                        title: 'Citizen 9',
+                        bytitle: 'citizen-9',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-5.png',
+                        hit: 1
+                      },
+
+
+
+                      {
                         category_id: '6',
                         brand_id: '4',
-                        title: 'Royal London 41040-01',
-                        bytitle: 'royal-london-41040-01',
+                        title: 'Royal London 1',
+                        bytitle: 'royal-london-1',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -127,8 +324,8 @@ product_attributes = [
                       {
                         category_id: '6',
                         brand_id: '4',
-                        title: 'Royal London 20034-02',
-                        bytitle: 'royal-london-20034-02',
+                        title: 'Royal London 2',
+                        bytitle: 'royal-london-2',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -141,8 +338,8 @@ product_attributes = [
                       {
                         category_id: '6',
                         brand_id: '4',
-                        title: 'Royal London 41156-02',
-                        bytitle: 'royal-london-41156-02',
+                        title: 'Royal London 3',
+                        bytitle: 'royal-london-3',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -153,10 +350,355 @@ product_attributes = [
                         hit: 1
                       },
                       {
+                        category_id: '12',
+                        brand_id: '4',
+                        title: 'Royal London 4',
+                        bytitle: 'royal-london-4',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-9.png',
+                        hit: 1
+                      },
+                      {
+                          category_id: '12',
+                          brand_id: '4',
+                          title: 'Royal London 5',
+                          bytitle: 'royal-london-5',
+                          content: Faker::Lorem.sentence(word_count: 20),
+                          price: Faker::Commerce.price,
+                          old_price: Faker::Commerce.price,
+                          status: 1,
+                          keywords: 'keywords',
+                          description: Faker::Lorem.sentence(word_count: 10),
+                          img: 'p-10.png',
+                          hit: 1
+                      },
+                      {
+                          category_id: '12',
+                          brand_id: '4',
+                          title: 'Royal London 6',
+                          bytitle: 'royal-london-6',
+                          content: Faker::Lorem.sentence(word_count: 20),
+                          price: Faker::Commerce.price,
+                          old_price: Faker::Commerce.price,
+                          status: 1,
+                          keywords: 'keywords',
+                          description: Faker::Lorem.sentence(word_count: 10),
+                          img: 'p-11.png',
+                          hit: 1
+                      },
+                      {
+                          category_id: '18',
+                          brand_id: '4',
+                          title: 'Royal London 7',
+                          bytitle: 'royal-london-7',
+                          content: Faker::Lorem.sentence(word_count: 20),
+                          price: Faker::Commerce.price,
+                          old_price: Faker::Commerce.price,
+                          status: 1,
+                          keywords: 'keywords',
+                          description: Faker::Lorem.sentence(word_count: 10),
+                          img: 'p-12.png',
+                          hit: 1
+                      },
+                      {
+                          category_id: '18',
+                          brand_id: '4',
+                          title: 'Royal London 8',
+                          bytitle: 'royal-london-8',
+                          content: Faker::Lorem.sentence(word_count: 20),
+                          price: Faker::Commerce.price,
+                          old_price: Faker::Commerce.price,
+                          status: 1,
+                          keywords: 'keywords',
+                          description: Faker::Lorem.sentence(word_count: 10),
+                          img: 'p-13.png',
+                          hit: 1
+                      },
+                      {
+                          category_id: '18',
+                          brand_id: '4',
+                          title: 'Royal London 9',
+                          bytitle: 'royal-london-9',
+                          content: Faker::Lorem.sentence(word_count: 20),
+                          price: Faker::Commerce.price,
+                          old_price: Faker::Commerce.price,
+                          status: 1,
+                          keywords: 'keywords',
+                          description: Faker::Lorem.sentence(word_count: 10),
+                          img: 'p-1.png',
+                          hit: 1
+                      },
+
+
+
+                      {
+                        category_id: '4',
+                        brand_id: '1',
+                        title: 'Casio 10',
+                        bytitle: 'casio-10',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-1.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '4',
+                        brand_id: '1',
+                        title: 'Casio 11',
+                        bytitle: 'casio-11',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-2.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '4',
+                        brand_id: '1',
+                        title: 'Casio 12',
+                        bytitle: 'casio-12',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-3.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '10',
+                        brand_id: '1',
+                        title: 'Casio 13',
+                        bytitle: 'casio-13',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-4.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '10',
+                        brand_id: '1',
+                        title: 'Casio 14',
+                        bytitle: 'casio-14',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-5.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '10',
+                        brand_id: '1',
+                        title: 'Casio 15',
+                        bytitle: 'casio-15',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-6.png',
+                        hit: 1
+                      },
+                      
+                      {
+                        category_id: '16',
+                        brand_id: '1',
+                        title: 'Casio 16',
+                        bytitle: 'casio-16',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-7.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '16',
+                        brand_id: '1',
+                        title: 'Casio 17',
+                        bytitle: 'casio-17',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-8.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '16',
+                        brand_id: '1',
+                        title: 'Casio 18',
+                        bytitle: 'casio-18',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-9.png',
+                        hit: 1
+                      },
+
+
+                      {
+                        category_id: '5',
+                        brand_id: '2',
+                        title: 'Citizen 10',
+                        bytitle: 'citizen-10',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-10.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '5',
+                        brand_id: '2',
+                        title: 'Citizen 11',
+                        bytitle: 'citizen-11',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-11.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '5',
+                        brand_id: '2',
+                        title: 'Citizen 12',
+                        bytitle: 'citizen-12',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-12.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '11',
+                        brand_id: '2',
+                        title: 'Citizen 13',
+                        bytitle: 'citizen-13',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-13.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '11',
+                        brand_id: '2',
+                        title: 'Citizen 14',
+                        bytitle: 'citizen-14',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-1.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '11',
+                        brand_id: '2',
+                        title: 'Citizen 15',
+                        bytitle: 'citizen-15',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-2.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '17',
+                        brand_id: '2',
+                        title: 'Citizen 16',
+                        bytitle: 'citizen-16',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-3.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '17',
+                        brand_id: '2',
+                        title: 'Citizen 17',
+                        bytitle: 'citizen-17',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-4.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '17',
+                        brand_id: '2',
+                        title: 'Citizen 18',
+                        bytitle: 'citizen-18',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-5.png',
+                        hit: 1
+                      },
+
+
+
+                      {
                         category_id: '6',
                         brand_id: '4',
-                        title: 'Royal London 6754-99',
-                        bytitle: 'royal-london-6754-99',
+                        title: 'Royal London 10',
+                        bytitle: 'royal-london-10',
                         content: Faker::Lorem.sentence(word_count: 20),
                         price: Faker::Commerce.price,
                         old_price: Faker::Commerce.price,
@@ -167,66 +709,108 @@ product_attributes = [
                         hit: 1
                       },
                       {
-                          category_id: '1',
+                        category_id: '6',
+                        brand_id: '4',
+                        title: 'Royal London 11',
+                        bytitle: 'royal-london-11',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-7.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '6',
+                        brand_id: '4',
+                        title: 'Royal London 12',
+                        bytitle: 'royal-london-12',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-8.png',
+                        hit: 1
+                      },
+                      {
+                        category_id: '12',
+                        brand_id: '4',
+                        title: 'Royal London 13',
+                        bytitle: 'royal-london-13',
+                        content: Faker::Lorem.sentence(word_count: 20),
+                        price: Faker::Commerce.price,
+                        old_price: Faker::Commerce.price,
+                        status: 1,
+                        keywords: 'keywords',
+                        description: Faker::Lorem.sentence(word_count: 10),
+                        img: 'p-9.png',
+                        hit: 1
+                      },
+                      {
+                          category_id: '12',
                           brand_id: '4',
-                          title: 'Royal London 12',
-                          bytitle: 'royal-london-67512',
+                          title: 'Royal London 14',
+                          bytitle: 'royal-london-14',
                           content: Faker::Lorem.sentence(word_count: 20),
                           price: Faker::Commerce.price,
                           old_price: Faker::Commerce.price,
                           status: 1,
                           keywords: 'keywords',
                           description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-5.png',
+                          img: 'p-10.png',
                           hit: 1
                       },
                       {
-                          category_id: '2',
+                          category_id: '12',
                           brand_id: '4',
-                          title: 'Royal London 6754-9922',
-                          bytitle: 'royal-london-6754-9922',
+                          title: 'Royal London 15',
+                          bytitle: 'royal-london-15',
                           content: Faker::Lorem.sentence(word_count: 20),
                           price: Faker::Commerce.price,
                           old_price: Faker::Commerce.price,
                           status: 1,
                           keywords: 'keywords',
                           description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-4.png',
+                          img: 'p-11.png',
                           hit: 1
                       },
                       {
-                          category_id: '3',
+                          category_id: '18',
                           brand_id: '4',
-                          title: 'Royal London 6754-939',
-                          bytitle: 'royal-london-6754-939',
+                          title: 'Royal London 16',
+                          bytitle: 'royal-london-16',
                           content: Faker::Lorem.sentence(word_count: 20),
                           price: Faker::Commerce.price,
                           old_price: Faker::Commerce.price,
                           status: 1,
                           keywords: 'keywords',
                           description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-3.png',
+                          img: 'p-12.png',
                           hit: 1
                       },
                       {
-                          category_id: '4',
+                          category_id: '18',
                           brand_id: '4',
-                          title: 'Royal London 6754-919',
-                          bytitle: 'royal-london-6754-199',
+                          title: 'Royal London 17',
+                          bytitle: 'royal-london-17',
                           content: Faker::Lorem.sentence(word_count: 20),
                           price: Faker::Commerce.price,
                           old_price: Faker::Commerce.price,
                           status: 1,
                           keywords: 'keywords',
                           description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-2.png',
+                          img: 'p-13.png',
                           hit: 1
                       },
                       {
-                          category_id: '5',
+                          category_id: '18',
                           brand_id: '4',
-                          title: 'Royal London 67534-99',
-                          bytitle: 'royal-london-67354-99',
+                          title: 'Royal London 18',
+                          bytitle: 'royal-london-18',
                           content: Faker::Lorem.sentence(word_count: 20),
                           price: Faker::Commerce.price,
                           old_price: Faker::Commerce.price,
@@ -235,93 +819,7 @@ product_attributes = [
                           description: Faker::Lorem.sentence(word_count: 10),
                           img: 'p-1.png',
                           hit: 1
-                      },
-                      {
-                          category_id: '8',
-                          brand_id: '4',
-                          title: 'Royal London 675214-99',
-                          bytitle: 'royal-london-671154-99',
-                          content: Faker::Lorem.sentence(word_count: 20),
-                          price: Faker::Commerce.price,
-                          old_price: Faker::Commerce.price,
-                          status: 1,
-                          keywords: 'keywords',
-                          description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-6.png',
-                          hit: 1
-                      },
-                      {
-                          category_id: '9',
-                          brand_id: '4',
-                          title: 'Royal London 6712354-99',
-                          bytitle: 'royal-london-6123754-99',
-                          content: Faker::Lorem.sentence(word_count: 20),
-                          price: Faker::Commerce.price,
-                          old_price: Faker::Commerce.price,
-                          status: 1,
-                          keywords: 'keywords',
-                          description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-5.png',
-                          hit: 1
-                      },
-                      {
-                          category_id: '10',
-                          brand_id: '4',
-                          title: 'Royal London 675334-99',
-                          bytitle: 'royal-london-675334-99',
-                          content: Faker::Lorem.sentence(word_count: 20),
-                          price: Faker::Commerce.price,
-                          old_price: Faker::Commerce.price,
-                          status: 1,
-                          keywords: 'keywords',
-                          description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-4.png',
-                          hit: 1
-                      },
-                      {
-                          category_id: '11',
-                          brand_id: '4',
-                          title: 'Royal London 67123454-99',
-                          bytitle: 'royal-london-67234554-99',
-                          content: Faker::Lorem.sentence(word_count: 20),
-                          price: Faker::Commerce.price,
-                          old_price: Faker::Commerce.price,
-                          status: 1,
-                          keywords: 'keywords',
-                          description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-3.png',
-                          hit: 1
-                      },
-                      {
-                          category_id: '12',
-                          brand_id: '4',
-                          title: 'Royal London 6751224-99',
-                          bytitle: 'royal-london-67121254-99',
-                          content: Faker::Lorem.sentence(word_count: 20),
-                          price: Faker::Commerce.price,
-                          old_price: Faker::Commerce.price,
-                          status: 1,
-                          keywords: 'keywords',
-                          description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-2.png',
-                          hit: 1
-                      },
-                      {
-                          category_id: '13',
-                          brand_id: '4',
-                          title: 'Royal London 675334-99',
-                          bytitle: 'royal-london-6754444-99',
-                          content: Faker::Lorem.sentence(word_count: 20),
-                          price: Faker::Commerce.price,
-                          old_price: Faker::Commerce.price,
-                          status: 1,
-                          keywords: 'keywords',
-                          description: Faker::Lorem.sentence(word_count: 10),
-                          img: 'p-6.png',
-                          hit: 1
                       }
-
-
 ]
 
 product_attributes.each do |attr|

@@ -23,12 +23,17 @@ class ProductController < ApplicationController
     session[:viewed_products] ||= []
     session[:viewed_products] = ([@product.id] + session[:viewed_products])
                                   .uniq
-                                  .take(3)
+                                  .take(6)
   end
 
   def set_page_options
     set_meta_tags product.slice(:title, :keywords, :description)
     add_breadcrumb "Home", root_path
   end
+
+
+
+
+
 
 end

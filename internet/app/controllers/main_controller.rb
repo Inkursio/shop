@@ -8,8 +8,8 @@ class MainController < ApplicationController
   before_action :set_page_options
 
   def set_page_options
-    @page_title = "MaximShues"
-    @page_description = "Shues"
+    @page_title = "Oleg"
+    @page_description = "diplom"
     @page_keywords = "Man Woman Kids"
   end
 
