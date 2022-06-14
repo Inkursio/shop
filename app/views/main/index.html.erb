@@ -1,0 +1,49 @@
+<!--banner-starts-->
+<div class="bnr" id="home">
+  <div id="top" class="callbacks_container">
+    <ul class="rslides" id="slider4">
+      <li><%= image_tag("bnr-1.jpg", alt:"")%> </li>
+      <li><%= image_tag("bnr-2.jpg", alt:"")%> </li>
+      <li><%= image_tag("bnr-3.jpg", alt:"")%> </li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<!--end-->
+<% if @brands.nil? %>
+  <h2>no brands</h2>
+<% else %>
+  <div class="about">
+    <div class="container">
+      <div class="about-top grid-1 row">
+        <% @brands.each do |i| %>
+          <div class="col-md-4 about-left">
+            <figure class="effet-bubba">
+              <%= image_tag(i.img, alt:"", class:"img-responsive")%>
+              <figcaption>
+                <h2><%= i.title %></h2>
+                <p><%= i.description %></p>
+              </figcaption>
+            </figure>
+          </div>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!---->
+<% if @hits.nil? %>
+  <h2>no hits</h2>
+<% else %>
+  <div class="product">
+    <div class="container">
+      <div class="product-top">
+        <div class="product-one row">
+          <%= render partial: "main/index/product", collection: @hits.hit %>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>

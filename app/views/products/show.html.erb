@@ -1,0 +1,166 @@
+<!--start-breadcrumbs-->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="breadcrumbs_min">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= render_breadcrumbs %></li>
+        <li class="breadcrumb-item"><%= link_to @product.category.title, category_path(@product.category) %></li>
+        <li class="breadcrumb-item active"><%=@product.title%></li>
+      </ol>
+    </div>
+  </div>
+</div>
+<!--end-breadcrumbs-->
+<!--start-single-->
+<div class="single contact">
+  <div class="container">
+    <div class="single-main row">
+      <div class="col-md-9 single-main-left">
+        <div class="sngl-top row">
+          <div class="col-md-5 single-top-left">
+            <div class="flexslider">
+              <ul class="slides">
+                <li data-thumb="<%= url_for(@product.img) %>">
+                  <div class="thumb-image">
+                    <%= image_tag @product.img, data:{imagezoom: true}, class:"img-responsive"%>
+                  </li>
+                  <li data-thumb="<%= asset_path 's-2.jpg'%>">
+                    <div class="thumb-image"><img src="<%=asset_path's-2.jpg'%>" data-imagezoom="true" class="img-responsive" alt=""/></div>
+                  </li>
+                  <li data-thumb="<%= asset_path 's-3.jpg'%>">
+                    <div class="thumb-image"><img src="<%=asset_path's-3.jpg'%>" data-imagezoom="true" class="img-responsive" alt=""/></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-7 single-top-right">
+              <div class="single-para simpleCart_shelfItem">
+                <h2><%=@product.title%></h2>
+                <div class="star-on">
+                  <ul class="star-footer">
+                    <li><a href="#"><i> </i></a></li>
+                    <li><a href="#"><i> </i></a></li>
+                    <li><a href="#"><i> </i></a></li>
+                    <li><a href="#"><i> </i></a></li>
+                    <li><a href="#"><i> </i></a></li>
+                  </ul>
+                  <div class="review">
+                    <a href="#">1 customer review</a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <h5 class="item-price">$ <%= @product.price%></h5>
+                <p><%= @product.content%></p>
+                <div class="available">
+                  <ul>
+                    <li class="size-in">Size
+                      <select>
+                        <option>Large</option>
+                        <option>Medium</option>
+                        <option>Small</option>
+                      </select>
+                    </li>
+                    <div class="clearfix"></div>
+                  </ul>
+                </div>
+                <ul class="tag-men">
+                  <li>
+                  </li>
+                </ul>
+                <div class="quantity">
+                  <input type="number" size="4" name="quantity" value="1" min="1" step="1">
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="tabs">
+            <ul class="menu_drop">
+              <li class="item1"><a href="#"><img src="<%= asset_path 'arrow.png'%>" alt="">Description</a>
+                <ul>
+                  <li class="subitem1"><a href="#">1111111111111</a></li>
+                  <li class="subitem2"><a href="#">2222222222222</a></li>
+                  <li class="subitem3"><a href="#">3333333333333</a></li>
+                </ul>
+              </li>
+              <li class="item2"><a href="#"><img src="<%= asset_path 'arrow.png'%>" alt="">Additional information</a>
+                <ul>
+                  <li class="subitem2"><a href="#">2222222222222</a></li>
+                  <li class="subitem3"><a href="#">3333333333333</a></li>
+                </ul>
+              </li>
+              <li class="item3"><a href="#"><img src="<%= asset_path 'arrow.png'%>" alt="">Reviews(10)</a>
+                <ul>
+                  <li class="subitem1"><a href="#">1111111111111</a></li>
+                  <li class="subitem2"><a href="#">2222222222222</a></li>
+                  <li class="subitem3"><a href="#">3333333333333</a></li>
+                </ul>
+              </li>
+              <li class="item4"><a href="#"><img src="<%= asset_path 'arrow.png'%>" alt="">Helpful links</a>
+                <ul>
+                  <li class="subitem2"><a href="#">2222222222222</a></li>
+                  <li class="subitem3"><a href="#">3333333333333</a></li>
+                </ul>
+              </li>
+              <li class="item5"><a href="#"><img src="<%= asset_path 'arrow.png'%>" alt="">Make a Gift</a>
+                <ul>
+                  <li class="subitem2"><a href="#">2222222222222</a></li>
+                  <li class="subitem3"><a href="#">3333333333333</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <%if recomend_products.any?%>
+            <div class="latestproducts">
+              <div class="product-one">
+                <h3>Recomend Products</h3>
+                <div class="row">
+                  <%= render partial: "main/index/product", collection: recomend_products %>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          <%end%>
+          <%if recent_products.any?%>
+            <div class="latestproducts">
+              <div class="product-one">
+                <h3>Recently Products</h3>
+                <div class="row">
+                  <%= render partial: "main/index/product", collection: recent_products %>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          <%end%>
+        </div>
+        <div class="col-md-3 single-right">
+          <div class="w_sidebar">
+            <section class="sky-form">
+              <h4>Categories</h4>
+              <div class="row1 scroll-pane row">
+                <div class="col col-4">
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Women Watches</label>
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kids Watches</label>
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Men Watches</label>
+                </div>
+              </div>
+            </section>
+            <section class="sky-form">
+              <h4>Brand</h4>
+              <div class="row1 row2 scroll-pane row">
+                <div class="col col-4">
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Citizen</label>
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Casio</label>
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Royal London</label>
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Seiko</label>
+                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Diesel</label>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <!--start-single-->
